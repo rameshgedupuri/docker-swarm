@@ -15,7 +15,7 @@ services:
     image: postgres:15-alpine
     environment:
       POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_PASSWORD: $psql_pass # store the password using echo "<secret>" | docker secret create psql_pass -
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
